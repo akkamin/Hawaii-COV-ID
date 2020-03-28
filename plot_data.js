@@ -19,6 +19,7 @@ $(document).ready(function() {
         {
             //dataObj = $.csv.toObjects(response);
             dataArr = $.csv.toArrays(response);
+            keys = dataArr[0];
             console.log(dataArr);
             for (var i=0; i<9; i++){
                 if(i !== 7){
