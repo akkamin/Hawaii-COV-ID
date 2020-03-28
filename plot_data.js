@@ -40,9 +40,8 @@ function createGraph(xVals, yVals){
     
     var newDivName = yVals[0].replace(/ /g, "").toLowerCase();
     
-    var xValsData = xVals.slice[1,xVals.length];
-    var yValsData = yVals.slice[1,yVals.length];
-    console.log(yVals);
+    var xValsData = xVals.slice(1,xVals.length);
+    var yValsData = yVals.slice(1,yVals.length);
     for(var i=0; i<yValsData.length; i++){
         var increasedAmt = yValsData[i] - prevDayTot;
         //console.log(increasedAmt);
