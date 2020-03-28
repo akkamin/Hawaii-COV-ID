@@ -6,7 +6,7 @@ $(document).ready(function() {
 	  dataType: "text",       
 	  success: function(response)  
 	  {
-		data = $.csv.toArrays(response);
+		data = $.csv.toObjects(response);
         console.log('hi there');
 		console.log(data);
 	  }   
