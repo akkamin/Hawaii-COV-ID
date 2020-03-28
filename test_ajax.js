@@ -1,4 +1,5 @@
-var data;
+var dataArr;
+var dataObj;
 $(document).ready(function() {
 	$.ajax({
 	  type: "GET",  
@@ -6,9 +7,11 @@ $(document).ready(function() {
 	  dataType: "text",       
 	  success: function(response)  
 	  {
-		data = $.csv.toObjects(response);
+		dataObj = $.csv.toObjects(response);
+        dataArr = $.csv.toArrays(response);
         console.log('hi there');
-		console.log(data);
+		console.log(dataObj);
+        console.log(dataArr);
 	  }   
 	});
     
