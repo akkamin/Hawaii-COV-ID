@@ -41,7 +41,7 @@ function addNavBarItem(dataRowName){
     
     jQuery('<a/>', {
         id: islandName + 'Label'
-    }).appendTo('#' + islandName);
+    }).appendTo('#' + islandName + 'listItem');
         
     
     jQuery( "#" + islandName + 'label').on('click', function() {
