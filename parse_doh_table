@@ -1,0 +1,17 @@
+var myCSVData = '';
+var data_tab = jQuery('table')[0].rows;
+for(var i =1; i<data_tab.length; i++){
+    //jQuery('table')[0].rows[13].children[0].innerText
+    var columns = data_tab[i].children;
+    var rowVals = '';
+    for(var j=0; j<columns.length; j++){
+        var value = columns[j].innerText;
+        rowVals += value + ',';
+    }
+    if (rowVals != ' , , ,'){
+        var output = rowVals.substring(0, rowVals.length - 1);
+        myCSVData += output + '\n';
+    }
+}
+jQuery('table').append("<p id='myData'></p>");
+document.getElementById('myData').innerHTML = myCSVData;
