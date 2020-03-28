@@ -8,6 +8,7 @@ bigIslandPositive 4
 unknownPositives 5
 hospitalizations 6
 */
+var dataArr;
 var values = [];
 
 $(document).ready(function() {
@@ -41,7 +42,7 @@ function createGraph(xVals, yVals){
     
     var xValsData = xVals.slice[1,xVals.length];
     var yValsData = yVals.slice[1,yVals.length];
-    
+    console.log(yValsData);
     for(var i=0; i<yValsData.length; i++){
         var increasedAmt = yValsData[i] - prevDayTot;
         //console.log(increasedAmt);
