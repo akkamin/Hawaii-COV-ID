@@ -1,58 +1,76 @@
 var keys = [];
+/*
+totalPositive 0
+honoluluPositive 1
+mauiPositive 2
+kauaiPositive 3
+bigIslandPositive 4
+unknownPositives 5
+hospitalizations 6
+*/
 var values = [];
 
 $(document).ready(function() {
-    for (const element of covid19Data){
-        //console.log(element["Province/State"]);
-        if(element["Province/State"] === 'Hawaii' && element["Country/Region"] === 'US'){
-            console.log(element);
-            keys = Object.keys(element);
-            values = Object.values(element);
-            //console.log(keys);
-            //console.log(values);
-            break;
-        }
-    }
-    var combinedData = filterValues(keys, values);
-    createGraph(combinedData);
-    
+    $.ajax({
+        type: "GET",  
+        url: "data/timeseries/timeseries.csv",
+        dataType: "text",       
+        success: function(response)  
+        {
+            //dataObj = $.csv.toObjects(response);
+            dataArr = $.csv.toArrays(response);
+            console.log(dataArr);
+            for (var i=0; i<9; i++){
+                if(i !== 7){
+                    values.push(dataArr[i]);
+                    createGraph(keys, values[i]);
+                }
+            }
+        }   
+    });    
 });
 
 
-
-function createGraph(values){
-    var xVals = [];
-    var yVals = [];
+function createGraph(xVals, yVals){
     
     var yValsByDay = [];
     var prevDayTot = 0;
     
-    for(var i = 0; i<values.length; i++){
-        xVals.push(values[i][0]);
-        yVals.push(values[i][1]);
-        var increasedAmt = values[i][1] - prevDayTot;
-        console.log(increasedAmt);
+    var newDivName = yVals[0].replace(/ /g, "").toLowerCase();
+    
+    var xValsData = xVals.slice[1,xVals.length];
+    var yValsData = yVals.slice[1,yVals.length];
+    
+    for(var i=0; i<yValsData.length; i++){
+        var increasedAmt = yValsData[i] - prevDayTot;
+        //console.log(increasedAmt);
         yValsByDay.push(increasedAmt);
-        prevDayTot = values[i][1];
+        prevDayTot = yValsData[i];
     }
     var total = {
-        name: 'Total',
-        x: xVals,
-        y: yVals,
+        name: yVals[0] + ' Total',
+        x: xValsData,
+        y: yValsData,
         type: 'scatter'
     };
     
     var byDay = {
-        name: 'By Day',
-        x: xVals,
+        name: yVals[0] + ' By Day',
+        x: xValsData,
         y: yValsByDay,
         type: 'scatter'
     };
     
+    jQuery('<div/>', {
+        id: newDivName
+    }).appendTo('#allGraphs');
+    
     var data = [total, byDay];
-    Plotly.newPlot('myDiv', data);
+    Plotly.newPlot(newDivName, data);
 }
 
+
+//not used
 function filterValues(xVals, yVals){
     var filteredVals = [];
     var startingDate = false;
