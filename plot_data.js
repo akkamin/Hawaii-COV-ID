@@ -47,8 +47,7 @@ function addNavBarItem(dataRowName){
     
     jQuery( "#" + islandName + 'label').on('click', function() {
         $('#allGraphs').children().each(function () {
-            this.hide();
-            //$(this).hide();
+            $(this).hide();
         });
         
         $("#" + islandName).show();
