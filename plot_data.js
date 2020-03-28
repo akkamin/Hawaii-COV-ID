@@ -23,7 +23,7 @@ $(document).ready(function() {
             for (var i=0; i<9; i++){
                 if(i !== 7){
                     values.push(dataArr[i]);
-                    createGraph(keys, values[i]);
+                    createGraph(keys, dataArr[i]);
                 }
             }
         }   
