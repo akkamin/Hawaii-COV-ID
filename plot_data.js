@@ -22,7 +22,7 @@ $(document).ready(function() {
             dataArr = $.csv.toArrays(response);
             keys = dataArr[0];
             console.log(dataArr);
-            for (var i=0; i<9; i++){
+            for (var i=1; i<9; i++){
                 if(i !== 7){
                     values.push(dataArr[i]);
                     createGraph(keys, dataArr[i]);
