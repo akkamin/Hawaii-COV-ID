@@ -1,6 +1,8 @@
 <head>
 	<!-- Load plotly.js into the DOM -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
  <!--    <script src="data/timeseries/timeseries.js"></script> -->
     <script src="jquery-csv-master/src/jquery.csv.js"></script>
@@ -8,5 +10,12 @@
 </head>
 
 <body>
+    <div class="container">
+      <h3>Island</h3>
+      <ul id="islandNavigation" class="list-inline">
+      </ul>
+    </div>
+    
     <div id='allGraphs'></div>
+    
 </body>

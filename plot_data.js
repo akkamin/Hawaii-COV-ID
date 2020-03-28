@@ -26,12 +26,32 @@ $(document).ready(function() {
                 if(i !== 7){
                     values.push(dataArr[i]);
                     createGraph(keys, dataArr[i]);
+                    addNavBarItem(dataArr[i][0]);
                 }
             }
         }   
     });    
 });
 
+function addNavBarItem(dataRowName){
+    var islandName = dataRowName.replace(/ /g, "").toLowerCase();
+    jQuery('<li/>', {
+        id: islandName + 'listItem'
+    }).appendTo('#islandNavigation');
+    
+    jQuery('<a/>', {
+        id: islandName + 'Label'
+    }).appendTo('#' + islandName);
+        
+    
+    jQuery$( "#" + islandName + 'label').on('click', function() {
+        $('#allGraphs').children().each(function () {
+            $(this).hide();
+        });
+        
+        $("#" + islandName).show();
+    });
+}
 
 function createGraph(xVals, yVals){
     
