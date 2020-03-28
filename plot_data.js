@@ -40,7 +40,8 @@ function addNavBarItem(dataRowName){
     }).appendTo('#islandNavigation');
     
     jQuery('<a/>', {
-        id: islandName + 'Label'
+        id: islandName + 'Label',
+        text: dataRowName
     }).appendTo('#' + islandName + 'listItem');
         
     
