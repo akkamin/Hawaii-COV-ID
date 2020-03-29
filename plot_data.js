@@ -49,7 +49,7 @@ function addNavBarItem(dataRowName){
                 $(this).hide();
             });
             $('#islandNavigation').children().each(function (){
-                $(this).children('a').removeClass('active'); 
+                $(this).children().removeClass('active'); 
             });
             $("#" + islandName + 'Label').addClass('active');
             $("#" + islandName).show();
