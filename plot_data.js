@@ -29,6 +29,12 @@ $(document).ready(function() {
                     addNavBarItem(dataArr[i][0]);
                 }
             }
+            jQuery(".nav-link").on('click', ){
+                $('#islandNavigation').children().each(function (){
+                    $(this).children().removeClass('active'); 
+                });
+                $(this).addClass('active');
+            }
         }   
     });    
 });
@@ -48,10 +54,6 @@ function addNavBarItem(dataRowName){
             $('#allGraphs').children().each(function () {
                 $(this).hide();
             });
-            $('#islandNavigation').children().each(function (){
-                $(this).children().removeClass('active'); 
-            });
-            $("#" + islandName + 'Label').addClass('active');
             $("#" + islandName).show();
         }
     }).appendTo('#' + islandName + 'listItem');
