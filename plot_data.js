@@ -23,7 +23,7 @@ $(document).ready(function() {
             keys = dataArr[0];
             console.log(dataArr);
             for (var i=1; i<9; i++){
-                if(i !== 7){
+                if(i !== 6 || i !== 7){
                     values.push(dataArr[i]);
                     createGraph(keys, dataArr[i]);
                     addNavBarItem(dataArr[i][0]);
