@@ -36,16 +36,20 @@ $(document).ready(function() {
 function addNavBarItem(dataRowName){
     var islandName = dataRowName.replace(/ /g, "").toLowerCase();
     jQuery('<li/>', {
-        id: islandName + 'listItem'
+        id: islandName + 'listItem',
+        class: "nav-item"
     }).appendTo('#islandNavigation');
     
     jQuery('<a/>', {
         id: islandName + 'Label',
+        class: "nav-link"
         text: dataRowName,
         click: function() {
             $('#allGraphs').children().each(function () {
                 $(this).hide();
             });
+            
+            //$("#" + islandName + 'Label').addClass('active');
             $("#" + islandName).show();
         }
     }).appendTo('#' + islandName + 'listItem');
