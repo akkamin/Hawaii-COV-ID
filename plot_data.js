@@ -48,8 +48,10 @@ function addNavBarItem(dataRowName){
             $('#allGraphs').children().each(function () {
                 $(this).hide();
             });
-            
-            //$("#" + islandName + 'Label').addClass('active');
+            $('#islandNavigation').children().each(function (){
+                $(this).children('a').removeClass('active'); 
+            });
+            $("#" + islandName + 'Label').addClass('active');
             $("#" + islandName).show();
         }
     }).appendTo('#' + islandName + 'listItem');
