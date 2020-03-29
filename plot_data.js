@@ -29,7 +29,12 @@ $(document).ready(function() {
                     addNavBarItem(dataArr[i][0]);
                 }
             }
-
+            jQuery(".nav-item").on('click', function(){
+                $('#islandNavigation').children().each(function (){
+                    $(this).removeClass('active'); 
+                });
+                $(this).addClass('active');
+            });
         }   
     });    
 });
