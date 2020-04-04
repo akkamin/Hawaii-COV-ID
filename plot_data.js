@@ -57,7 +57,7 @@ function addIslandNavBarItem(dataRowName){
         jQuery('<a/>', {
             id: islandName + 'Label',
             class: "nav-link",
-            text: dataRowName,
+            text: islandName,
             click: function() {
                 $('#allGraphs').children().each(function () {
                     $(this).hide();
@@ -76,7 +76,6 @@ function addCategoryNavBarItem(dataRowName){
     var islandId = dataRowName.replace(/ /g, "").toLowerCase();
     var islandName = '';
     for(var i=0; i<countyNames.length; i++){
-        console.log(dataRowName);
         if(dataRowName.toLowerCase().indexOf(countyNames[i]) != -1){
             islandName = countyNames[i];
             
@@ -84,6 +83,7 @@ function addCategoryNavBarItem(dataRowName){
         }
     }
     if($('#' + islandName + 'Navigation').length === 0){
+        console.log(dataRowName);
         jQuery('ul/', {
            id: islandName + 'Navigation',
             class: "nav nav-pills"
