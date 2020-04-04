@@ -62,7 +62,7 @@ function addIslandNavBarItem(dataRowName){
                 $('#allGraphs').children().each(function () {
                     $(this).hide();
                 });
-                $('#islandNavigation').children().each(function () {
+                $('#categoriesNavigation').children().each(function () {
                     $(this).hide();
                 });
                 $("#" + islandName + "navigation").show();
@@ -84,7 +84,7 @@ function addCategoryNavBarItem(dataRowName){
     }
     if($('#' + islandName + 'Navigation').length === 0){
         console.log(dataRowName);
-        var newList = jQuery('<ul/>').appendTo('#navContainer');
+        var newList = jQuery('<ul/>').appendTo('#categoriesNavigation');
         newList.attr('id', islandName + 'Navigation');
         newList.addClass("nav nav-pills");
         
