@@ -78,6 +78,7 @@ function addCategoryNavBarItem(dataRowName){
     for(var i=0; i<countyNames.length; i++){
         if(dataRowName.indexOf(countyNames[i]) != -1){
             islandName = countyNames[i];
+            console.log(islandName);
             break;
         }
     }
