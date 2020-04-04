@@ -10,7 +10,7 @@ hospitalizations 6
 */
 var dataArr;
 var values = [];
-var countyNames = ['total','honolulu', 'maui', 'kauai', 'hawaii island'];
+var countyNames = ['total','honolulu', 'maui', 'kauai', 'hawaii'];
 
 $(document).ready(function() {
     $.ajax({
