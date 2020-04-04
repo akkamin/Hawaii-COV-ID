@@ -58,7 +58,7 @@ function addIslandNavBarItem(dataRowName){
             break;
         }
     }
-    labelName = islandName.substring(1,2).toUpperCase,islandName.substring(1,islandName.length));
+    labelName = islandName.substring(1,2).toUpperCase() + islandName.substring(1,islandName.length);
     if($('#' + islandName + 'listItem').length === 0){
         jQuery('<li/>', {
             id: islandName + 'listItem',
