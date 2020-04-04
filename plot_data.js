@@ -10,6 +10,7 @@ hospitalizations 6
 */
 var dataArr;
 var values = [];
+var countyNames = ['honolulu', 'maui', 'kauai', 'hawaii island'];
 
 $(document).ready(function() {
     $.ajax({
@@ -22,12 +23,11 @@ $(document).ready(function() {
             dataArr = $.csv.toArrays(response);
             keys = dataArr[0];
             console.log(dataArr);
-            for (var i=1; i<9; i++){
-                if(i !== 6 && i !== 7){
-                    values.push(dataArr[i]);
-                    createGraph(keys, dataArr[i]);
-                    addNavBarItem(dataArr[i][0]);
-                }
+            for (var i=1; i<16; i++){
+                values.push(dataArr[i]);
+                createGraph(keys, dataArr[i]);
+                addIslandNavBarItem(dataArr[i][0]);
+                addCategoryNavBarItem(dataArr[i][0]);
             }
             jQuery(".nav-item").on('click', function(){
                 $('#islandNavigation').children().each(function (){
@@ -39,25 +39,68 @@ $(document).ready(function() {
     });    
 });
 
-function addNavBarItem(dataRowName){
-    var islandName = dataRowName.replace(/ /g, "").toLowerCase();
-    jQuery('<li/>', {
-        id: islandName + 'listItem',
-        class: "nav-item"
-    }).appendTo('#islandNavigation');
+function addIslandNavBarItem(dataRowName){
+    var islandName = '';
+    for(var i=0; i<countyNames.length; i++){
+        if(dataRowName.indexOf(countyNames[i]) != -1){
+            islandName = countyNames[i];
+            break;
+        }
+    }
+    if($('#' + islandName + 'listItem').length === 0){
+        jQuery('<li/>', {
+            id: islandName + 'listItem',
+            class: "nav-item"
+        }).appendTo('#islandNavigation');
+
+        jQuery('<a/>', {
+            id: islandName + 'Label',
+            class: "nav-link",
+            text: dataRowName,
+            click: function() {
+                $('#allGraphs').children().each(function () {
+                    $(this).hide();
+                });
+                $("#" + islandName).show();
+            }
+        }).appendTo('#' + islandName + 'listItem');
+    }
+}
+
+function addCategoryNavBarItem(dataRowName){
+    var islandId = dataRowName.replace(/ /g, "").toLowerCase();
+    var islandName = '';
+    for(var i=0; i<countyNames.length; i++){
+        if(dataRowName.indexOf(countyNames[i]) != -1){
+            islandName = countyNames[i];
+            break;
+        }
+    }
+    if($('#' + islandName + 'Navigation').length === 0){
+        jQuery('ul/', {
+           id: islandName + 'Navigation',
+            class: "nav nav-pills"
+        }).appendTo( '#navContainer');
+    }
     
+    jQuery('<li/>', {
+        id: islandId + 'listItem',
+        class: "nav-item"
+    }).appendTo('#' + islandName + 'Navigation');
+
     jQuery('<a/>', {
-        id: islandName + 'Label',
+        id: islandId + 'Label',
         class: "nav-link",
         text: dataRowName,
         click: function() {
             $('#allGraphs').children().each(function () {
                 $(this).hide();
             });
-            $("#" + islandName).show();
+            $("#" + islandId).show();
         }
-    }).appendTo('#' + islandName + 'listItem');
-        
+    }).appendTo('#' + islandId + 'listItem');
+    
+    
 }
 
 function createGraph(xVals, yVals){
