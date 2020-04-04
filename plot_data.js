@@ -10,7 +10,7 @@ hospitalizations 6
 */
 var dataArr;
 var values = [];
-var countyNames = ['honolulu', 'maui', 'kauai', 'hawaii island'];
+var countyNames = ['total','honolulu', 'maui', 'kauai', 'hawaii island'];
 
 $(document).ready(function() {
     $.ajax({
@@ -76,9 +76,10 @@ function addCategoryNavBarItem(dataRowName){
     var islandId = dataRowName.replace(/ /g, "").toLowerCase();
     var islandName = '';
     for(var i=0; i<countyNames.length; i++){
+        console.log(dataRowName);
         if(dataRowName.indexOf(countyNames[i]) != -1){
             islandName = countyNames[i];
-            console.log(islandName);
+            
             break;
         }
     }
