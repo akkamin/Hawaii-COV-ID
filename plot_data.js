@@ -33,7 +33,16 @@ $(document).ready(function() {
                 $('#islandNavigation').children().each(function (){
                     $(this).removeClass('active'); 
                 });
+                $('#categoriesNavigation').children().each(function () {
+                    $(this).children().each(function(){
+                        $(this).removeClass('active');
+                    });
+                });
                 $(this).addClass('active');
+            });
+            
+            $('#categoriesNavigation').children().each(function () {
+                $(this).hide();
             });
         }   
     });    
@@ -65,7 +74,7 @@ function addIslandNavBarItem(dataRowName){
                 $('#categoriesNavigation').children().each(function () {
                     $(this).hide();
                 });
-                $("#" + islandName + "navigation").show();
+                $("#" + islandName + "Navigation").show();
                 $("#" + islandId).show();
             }
         }).appendTo('#' + islandName + 'listItem');
@@ -83,18 +92,9 @@ function addCategoryNavBarItem(dataRowName){
         }
     }
     if($('#' + islandName + 'Navigation').length === 0){
-        console.log(dataRowName);
         var newList = jQuery('<ul/>').appendTo('#categoriesNavigation');
         newList.attr('id', islandName + 'Navigation');
         newList.addClass("nav nav-pills");
-        
-        /*
-        var newList = jQuery('ul/', {
-           id: islandName + 'Navigation',
-            class: "nav nav-pills"
-        });
-        jQuery('#navContainer').append(newList);
-        */
     }
     
     jQuery('<li/>', {
