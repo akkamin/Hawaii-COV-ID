@@ -51,22 +51,24 @@ $(document).ready(function() {
 function addIslandNavBarItem(dataRowName){
     var islandId = dataRowName.replace(/ /g, "").toLowerCase();
     var islandName = '';
+    var labelName = '';
     for(var i=0; i<countyNames.length; i++){
         if(dataRowName.toLowerCase().indexOf(countyNames[i]) != -1){
             islandName = countyNames[i];
             break;
         }
     }
+    labelName = islandName.charAt(0).toUpperCase + islandName.substring(1,islandName.length);
     if($('#' + islandName + 'listItem').length === 0){
         jQuery('<li/>', {
             id: islandName + 'listItem',
             class: "nav-item"
         }).appendTo('#islandNavigation');
-
+        
         jQuery('<a/>', {
             id: islandName + 'Label',
             class: "nav-link",
-            text: islandName,
+            text: labelName,
             click: function() {
                 $('#allGraphs').children().each(function () {
                     $(this).hide();
