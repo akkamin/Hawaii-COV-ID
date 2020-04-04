@@ -43,7 +43,7 @@ function addIslandNavBarItem(dataRowName){
     var islandId = dataRowName.replace(/ /g, "").toLowerCase();
     var islandName = '';
     for(var i=0; i<countyNames.length; i++){
-        if(dataRowName.toLowerCase.indexOf(countyNames[i]) != -1){
+        if(dataRowName.toLowerCase().indexOf(countyNames[i]) != -1){
             islandName = countyNames[i];
             break;
         }
@@ -77,7 +77,7 @@ function addCategoryNavBarItem(dataRowName){
     var islandName = '';
     for(var i=0; i<countyNames.length; i++){
         console.log(dataRowName);
-        if(dataRowName.toLowerCase.indexOf(countyNames[i]) != -1){
+        if(dataRowName.toLowerCase().indexOf(countyNames[i]) != -1){
             islandName = countyNames[i];
             
             break;
