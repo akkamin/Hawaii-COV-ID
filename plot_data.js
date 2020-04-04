@@ -40,6 +40,7 @@ $(document).ready(function() {
 });
 
 function addIslandNavBarItem(dataRowName){
+    var islandId = dataRowName.replace(/ /g, "").toLowerCase();
     var islandName = '';
     for(var i=0; i<countyNames.length; i++){
         if(dataRowName.indexOf(countyNames[i]) != -1){
@@ -61,7 +62,11 @@ function addIslandNavBarItem(dataRowName){
                 $('#allGraphs').children().each(function () {
                     $(this).hide();
                 });
-                $("#" + islandName).show();
+                $('#islandNavigation').children().each(function () {
+                    $(this).hide();
+                });
+                $("#" + islandName + "navigation").show();
+                $("#" + islandId).show();
             }
         }).appendTo('#' + islandName + 'listItem');
     }
