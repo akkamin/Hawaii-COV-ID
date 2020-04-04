@@ -84,11 +84,17 @@ function addCategoryNavBarItem(dataRowName){
     }
     if($('#' + islandName + 'Navigation').length === 0){
         console.log(dataRowName);
+        var newList = jQuery('<ul/>').appendTo('#navContainer');
+        newList.attr('id', islandName + 'Navigation');
+        newList.addClass("nav nav-pills");
+        
+        /*
         var newList = jQuery('ul/', {
            id: islandName + 'Navigation',
             class: "nav nav-pills"
         });
         jQuery('#navContainer').append(newList);
+        */
     }
     
     jQuery('<li/>', {
