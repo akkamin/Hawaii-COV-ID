@@ -248,6 +248,7 @@ function filterValues(xVals, yVals){
 
 
 function createAggregatedByDay(startNumb, xVals, dataArr){
+    var yValsByDay = [];
     var prevDayTot = 0;
     var counter = (startNumb * 5) + 2
     var newDivName = dataCategories[startNumb];
