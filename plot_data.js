@@ -253,7 +253,7 @@ function createAggregatedByDay(startNumb, xVals, dataArr){
     var newDivName = dataCategories[startNumb];
     
     var data = [];
-    for(var k=counter; k<counter+4; i++){
+    for(var k=counter; k<counter+4; k++){
         var yVals = dataArr[k];
         var xValsData = xVals.slice(1,xVals.length);
         var yValsData = yVals.slice(1,yVals.length);
@@ -289,7 +289,7 @@ function createAggregated(startNumb, xVals, dataArr){
     var newDivName = dataCategories[startNumb];
     
     var data = [];
-    for(var k=counter; k<counter+4; i++){
+    for(var k=counter; k<counter+4; k++){
         var yVals = dataArr[k];
         var xValsData = xVals.slice(1,xVals.length);
         var yValsData = yVals.slice(1,yVals.length);
