@@ -29,8 +29,8 @@ $(document).ready(function() {
                 createAggregated(p, keys, dataArr);
                 createAggregatedByDay(p, keys, dataArr);
                 
-                addIslandNavBarItemAgg(dataCategories[p] + '_by_day');
-                addIslandNavBarItemAgg(dataCategories[p]);
+                addIslandNavBarItemAgg('ByDay');
+                addIslandNavBarItemAgg('Totals');
                 
                 addIslandNavBarItemAgg(dataCategories[p] + '_by_day');
                 addCategoryNavBarItemAgg(dataCategories[p]);
