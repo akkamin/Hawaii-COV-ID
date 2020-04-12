@@ -185,7 +185,7 @@ function addCategoryNavBarItemAgg(dataRowName, navItemName){
             });
             $("#" + islandId).show();
         }
-    }).appendTo('#' + navItemName + 'listItem');
+    }).appendTo('#' + islandId + 'listItem');
 }
 
 function createGraph(xVals, yVals){
