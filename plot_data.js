@@ -272,7 +272,7 @@ function createAggregatedByDay(startNumb, xVals, dataArr){
             type: 'scatter'
         };
 
-        var data.push(byDay);
+        data.push(byDay);
     }
     
     jQuery('<div/>', {
@@ -301,7 +301,7 @@ function createAggregated(startNumb, xVals, dataArr){
             type: 'scatter'
         };
 
-        var data.push(total);
+        data.push(total);
     }
     
     jQuery('<div/>', {
