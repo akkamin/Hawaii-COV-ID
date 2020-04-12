@@ -11,7 +11,7 @@ hospitalizations 6
 var dataArr;
 var values = [];
 var countyNames = ['total','honolulu', 'maui', 'kauai', 'hawaii'];
-var datacategories = ['positives', 'deaths', 'hospitalizations'];
+var dataCategories = ['positives', 'deaths', 'hospitalizations'];
 
 $(document).ready(function() {
     $.ajax({
