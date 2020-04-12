@@ -160,7 +160,7 @@ function addCategoryNavBarItem(dataRowName){
     }).appendTo('#' + islandId + 'listItem');
 }
 
-function addCategoryNavBarItemAgg(dataRowName){
+function addCategoryNavBarItemAgg(dataRowName, navItemName){
     var islandId = dataRowName;
     var islandName = dataRowName;
 
@@ -185,7 +185,7 @@ function addCategoryNavBarItemAgg(dataRowName){
             });
             $("#" + islandId).show();
         }
-    }).appendTo('#' + islandId + 'listItem');
+    }).appendTo('#' + navItemName + 'listItem');
 }
 
 function createGraph(xVals, yVals){
@@ -291,6 +291,7 @@ function createAggregated(startNumb, xVals, dataArr){
     
     var data = [];
     for(var k=counter; k<counter+4; k++){
+        console.log(dataArr[k]);
         var yVals = dataArr[k];
         var xValsData = xVals.slice(1,xVals.length);
         var yValsData = yVals.slice(1,yVals.length);
