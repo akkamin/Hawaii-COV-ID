@@ -29,10 +29,10 @@ $(document).ready(function() {
                 createAggregated(p, keys, dataArr);
                 createAggregatedByDay(p, keys, dataArr);
                 
-                addIslandNavBarItemAgg('_by_Day');
+                addIslandNavBarItemAgg('by_Day');
                 addIslandNavBarItemAgg('totals');
                 
-                addCategoryNavBarItemAgg(dataCategories[p] + '_by_Day', '_by_Day');
+                addCategoryNavBarItemAgg(dataCategories[p] + 'by_Day', 'by_Day');
                 addCategoryNavBarItemAgg(dataCategories[p], 'totals');
             }
             
@@ -97,7 +97,7 @@ function addIslandNavBarItem(dataRowName){
 }
 
 function addIslandNavBarItemAgg(dataRowName){
-    var islandId = dataRowName.replace(/ /g, "").toLowerCase();
+    var islandId = dataRowName;
     var islandName = dataRowName;
     var labelName = '';
 
@@ -161,7 +161,7 @@ function addCategoryNavBarItem(dataRowName){
 }
 
 function addCategoryNavBarItemAgg(dataRowName, navItemName){
-    var islandId = dataRowName.replace(/ /g, "").toLowerCase();
+    var islandId = dataRowName;
     var islandName = dataRowName;
 
     if($('#' + navItemName + 'Navigation').length === 0){
@@ -278,10 +278,10 @@ function createAggregatedByDay(startNumb, xVals, dataArr){
     }
     
     jQuery('<div/>', {
-        id: newDivName + '_by_Day'
+        id: newDivName + '_by_day'
     }).appendTo('#allGraphs');
     
-    Plotly.newPlot(newDivName + '_by_Day', data);
+    Plotly.newPlot(newDivName + 'by_day', data);
 }
 
 
