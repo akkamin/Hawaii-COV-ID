@@ -32,7 +32,7 @@ $(document).ready(function() {
                 addIslandNavBarItemAgg('byDay');
                 addIslandNavBarItemAgg('totals');
                 
-                addCategoryNavBarItemAgg(dataCategories[p], 'byDay');
+                addCategoryNavBarItemAgg(dataCategories[p] + 'by_day', 'byDay');
                 addCategoryNavBarItemAgg(dataCategories[p], 'totals');
             }
             
