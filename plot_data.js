@@ -166,7 +166,7 @@ function addCategoryNavBarItemAgg(dataRowName, navItemName){
 
     if($('#' + navItemName + 'Navigation').length === 0){
         var newList = jQuery('<ul/>').appendTo('#categoriesNavigation');
-        newList.attr('id', islandName + 'Navigation');
+        newList.attr('id', navItemName + 'Navigation');
         newList.addClass("nav nav-pills");
     }
     
