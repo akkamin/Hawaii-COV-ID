@@ -32,8 +32,8 @@ $(document).ready(function() {
                 addIslandNavBarItemAgg('ByDay');
                 addIslandNavBarItemAgg('Totals');
                 
-                addCategoryNavBarItemAgg(dataCategories[p] + '_by_day');
-                addCategoryNavBarItemAgg(dataCategories[p]);
+                addCategoryNavBarItemAgg(dataCategories[p] + '_by_day', 'ByDay');
+                addCategoryNavBarItemAgg(dataCategories[p], 'Totals');
             }
             
             for (var i=1; i<16; i++){
