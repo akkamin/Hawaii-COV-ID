@@ -29,11 +29,11 @@ $(document).ready(function() {
                 createAggregated(p, keys, dataArr);
                 createAggregatedByDay(p, keys, dataArr);
                 
-                addIslandNavBarItemAgg('ByDay');
-                addIslandNavBarItemAgg('Totals');
+                addIslandNavBarItemAgg('byDay');
+                addIslandNavBarItemAgg('totals');
                 
-                addCategoryNavBarItemAgg(dataCategories[p] + '_by_day', 'ByDay');
-                addCategoryNavBarItemAgg(dataCategories[p], 'Totals');
+                addCategoryNavBarItemAgg(dataCategories[p] + '_by_day', 'byDay');
+                addCategoryNavBarItemAgg(dataCategories[p], 'Totals', 'totals');
             }
             
             for (var i=1; i<16; i++){
@@ -281,7 +281,7 @@ function createAggregatedByDay(startNumb, xVals, dataArr){
         id: newDivName + '_by_day'
     }).appendTo('#allGraphs');
     
-    Plotly.newPlot(newDivName, data);
+    Plotly.newPlot(newDivName + '_by_day', data);
 }
 
 
