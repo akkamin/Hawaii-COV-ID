@@ -29,8 +29,8 @@ $(document).ready(function() {
                 createAggregated(p, keys, dataArr);
                 createAggregatedByDay(p, keys, dataArr);
                 
-                addIslandNavBarItemAgg('by_Day');
-                addIslandNavBarItemAgg('totals');
+                addIslandNavBarItemAgg(dataCategories[p] + 'by_Day','by_Day');
+                addIslandNavBarItemAgg(dataCategories[p],'totals');
                 
                 addCategoryNavBarItemAgg(dataCategories[p] + 'by_Day', 'by_Day');
                 addCategoryNavBarItemAgg(dataCategories[p], 'totals');
@@ -96,7 +96,7 @@ function addIslandNavBarItem(dataRowName){
     }
 }
 
-function addIslandNavBarItemAgg(dataRowName){
+function addIslandNavBarItemAgg(graph_name, dataRowName){
     var islandId = dataRowName;
     var islandName = dataRowName;
     var labelName = '';
@@ -120,7 +120,7 @@ function addIslandNavBarItemAgg(dataRowName){
                     $(this).hide();
                 });
                 $("#" + islandName + "Navigation").show();
-                $("#" + islandId).show();
+                $("#" + graph_name).show();
             }
         }).appendTo('#' + islandName + 'listItem');
     }
