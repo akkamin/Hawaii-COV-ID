@@ -164,7 +164,7 @@ function addCategoryNavBarItemAgg(dataRowName, navItemName){
     var islandId = dataRowName;
     var islandName = dataRowName;
 
-    if($('#' + islandName + 'Navigation').length === 0){
+    if($('#' + navItemName + 'Navigation').length === 0){
         var newList = jQuery('<ul/>').appendTo('#categoriesNavigation');
         newList.attr('id', islandName + 'Navigation');
         newList.addClass("nav nav-pills");
@@ -173,7 +173,7 @@ function addCategoryNavBarItemAgg(dataRowName, navItemName){
     jQuery('<li/>', {
         id: islandId + 'listItem',
         class: "nav-item"
-    }).appendTo('#' + islandName + 'Navigation');
+    }).appendTo('#' + navItemName + 'Navigation');
 
     jQuery('<a/>', {
         id: islandId + 'Label',
@@ -248,14 +248,14 @@ function filterValues(xVals, yVals){
 
 
 function createAggregatedByDay(startNumb, xVals, dataArr){
-    var yValsByDay = [];
-    var prevDayTot = 0;
+
     var counter = (startNumb * 5) + 2
     var newDivName = dataCategories[startNumb];
     
     var data = [];
     for(var k=counter; k<counter+4; k++){
-        prevDayTot = 0;
+        var yValsByDay = [];
+        var prevDayTot = 0;;
         var yVals = dataArr[k];
         var xValsData = xVals.slice(1,xVals.length);
         var yValsData = yVals.slice(1,yVals.length);
