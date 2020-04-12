@@ -278,10 +278,10 @@ function createAggregatedByDay(startNumb, xVals, dataArr){
     }
     
     jQuery('<div/>', {
-        id: newDivName + 'by_day'
+        id: newDivName + 'by_Day'
     }).appendTo('#allGraphs');
     
-    Plotly.newPlot(newDivName + 'by_day', data);
+    Plotly.newPlot(newDivName + 'by_Day', data);
 }
 
 
